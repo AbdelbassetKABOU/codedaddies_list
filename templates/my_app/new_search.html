@@ -1,50 +1,27 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    You are looking for :  <h1 style="text-align: center"> {{ search | title }}</h1>
+You are looking for :  <h1 style="text-align: center"> {{ search | title }}</h1>
+
+
 <div class="row">
+{%for post in final_postings %}
+     {% comment %} <p>{{post.0}}</p>
+     <p>{{post.1}}</p>
+     <p>{{post.2}}</p>           {% endcomment %}
     <div class="col s4">
         <div class="card">
             <div class="card-image">
-                <a href="/"><img src="https://previews.123rf.com/images/lkeskinen/lkeskinen1802/lkeskinen180208322/95731150-example-stamp-typographic-label-stamp-or-icon.jpg" alt=""></a>
+                <a href={{post.1}}><img src={{post.3}} alt=""></a>
             </div>
             <div class="card-content">
-                <p>TEST</p>
+                <p>{{post.0}}</p>
             </div>
             <div class="card-action">
-                <a href="/">View listing: Price TEST PRICE</a>
+                <a href={{post.1}}>View listing: PRICE {{post.2}}</a>
             </div>
         </div>
     </div>    
-
-
-        <div class="col s4">
-        <div class="card">
-            <div class="card-image">
-                <a href="/"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Example.svg/1200px-Example.svg.png" alt=""></a>
-            </div>
-            <div class="card-content">
-                <p>TEST</p>
-            </div>
-            <div class="card-action">
-                <a href="/">View listing: Price TEST PRICE</a>
-            </div>
-        </div>
-    </div>    
-
-
-        <div class="col s4">
-        <div class="card">
-            <div class="card-image">
-                <a href="/"><img src="https://t3.ftcdn.net/jpg/00/92/53/56/240_F_92535664_IvFsQeHjBzfE6sD4VHdO8u5OHUSc6yHF.jpg" alt=""></a>
-            </div>
-            <div class="card-content">
-                <p>TEST</p>
-            </div>
-            <div class="card-action">
-                <a href="/">View listing: Price TEST PRICE</a>
-            </div>
-        </div>
-    </div>    
+{% endfor %}     
 </div>
 {% endblock content %}
